@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+
+
+*{
+  box-sizing: border-box;  
+}
+
+body{
+  font-family: 'Mulish', sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #f6f6f6;
+}
+
+.container{
+  text-align: center;
+}
+.progress-container{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 600px;
+}
+
+
+
+
+
+.progress{
+  background: #3498db;
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  height: 4px;
+  width: 0%;
+  transform: translateY(-50%);
+  z-index: -1;
+  transition: 0.4s ease;
+}
+.progress-container::before{
+  content: "";
+  background: #e0e0e0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+.circle{
+  background-color: white;
+  color: #999;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  /* centering text in the circle with flex */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #e0e0e0;
+  transition: 0.6s ease;
+  position: relative;
+}
+.circle.active{
+  border-color: #3498db;
+}
+
+.message{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 100px; 
+  font-size: 1.1rem;
+  color: black;
+  align-items: center;
+  text-align: center;
+  background: #e0e0e0;
+  padding: 1rem 0.5rem;
+  border: 3px solid #3498db;
+  border-radius: 5px;
+  left: 0px;
+  bottom: 35px;
+  position: absolute;
+  opacity: 1;
+  transition: 0.6s ease;
+}
+
+
+.message::after{
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 5%;
+  margin-left: -2px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent;
+  border-top-color: #3498db;
+  transition: 0.6s ease;
+}
+.message.not-active{
+  opacity: 0;
+}
+
+.buttons{
+  display: flex;
+}
+.btn{
+  display: inline-block;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 30px;
+  margin: 5px;
+  font-size: 14px;
+}
+.btn:active{
+  transform: scale(0.98);
+}
+/* .btn:focus{
+  outline: 0;
+} */
+
+.btn:disabled{
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}
